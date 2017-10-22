@@ -23,7 +23,7 @@
         <my.variable>42</my.variable>
     </properties>
     <build>
-        <finalName>${project.name}</finalName>
+        <finalName>${project.name}-obfuscation</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -49,7 +49,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <appendAssemblyId>true</appendAssemblyId>
+                    <appendAssemblyId>false</appendAssemblyId>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
