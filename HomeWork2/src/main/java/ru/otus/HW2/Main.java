@@ -1,4 +1,4 @@
-package otus.HW2;
+package ru.otus.HW2;
 
 import java.lang.management.ManagementFactory;
 
