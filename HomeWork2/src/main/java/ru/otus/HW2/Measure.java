@@ -14,31 +14,34 @@ public class Measure{
 
     public int getValueString(){
         System.gc();
+        long l = (runtime.totalMemory() - runtime.freeMemory());
         String[] a = new String[num];
         for(int i=0;i<num;i++){
             a[i]=new String("");
         }
-        long l = (runtime.totalMemory() - runtime.freeMemory())/num;
+        l = ((runtime.totalMemory() - runtime.freeMemory())-l)/num;
         System.gc();
         return (int)l;
     }
     public int getValueObject(){
         System.gc();
+        long l = (runtime.totalMemory() - runtime.freeMemory());
         Object[] a = new Object[num];
         for(int i=0;i<num;i++){
             a[i]=new Object();
         }
-        long l = (runtime.totalMemory() - runtime.freeMemory())/num;
+        l = ((runtime.totalMemory() - runtime.freeMemory())-l)/num;
         System.gc();
         return (int)l;
     }
     public int getValueArray(){
         System.gc();
+        long l = (runtime.totalMemory() - runtime.freeMemory());
         ArrayList[] a = new ArrayList[num];
         for(int i=0;i<num;i++){
             a[i]=new ArrayList();
         }
-        long l = (runtime.totalMemory() - runtime.freeMemory())/num;
+        l = ((runtime.totalMemory() - runtime.freeMemory())-l)/num;
         System.gc();
         return (int)l;
     }
