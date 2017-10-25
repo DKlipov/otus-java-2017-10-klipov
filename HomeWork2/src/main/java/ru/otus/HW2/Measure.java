@@ -5,13 +5,11 @@ import java.util.Collection;
 import java.util.List;
 
 public class Measure{
-    long base;
     int num;
     Runtime runtime;
     public Measure(int n){
         num=n;
         runtime = Runtime.getRuntime();
-        base = runtime.totalMemory();
     }
 
     public int getValueString(){
@@ -20,7 +18,7 @@ public class Measure{
         for(int i=0;i<num;i++){
             a[i]=new String("");
         }
-        long l=(base- runtime.freeMemory())/num;
+        long l = (runtime.totalMemory() - runtime.freeMemory())/num;
         System.gc();
         return (int)l;
     }
@@ -30,7 +28,7 @@ public class Measure{
         for(int i=0;i<num;i++){
             a[i]=new Object();
         }
-        long l=(base- runtime.freeMemory())/num;
+        long l = (runtime.totalMemory() - runtime.freeMemory())/num;
         System.gc();
         return (int)l;
     }
@@ -40,7 +38,7 @@ public class Measure{
         for(int i=0;i<num;i++){
             a[i]=new ArrayList();
         }
-        long l=(base- runtime.freeMemory())/num;
+        long l = (runtime.totalMemory() - runtime.freeMemory())/num;
         System.gc();
         return (int)l;
     }
