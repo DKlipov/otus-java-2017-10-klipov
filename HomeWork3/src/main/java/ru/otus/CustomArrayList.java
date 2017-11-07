@@ -3,16 +3,15 @@ package ru.otus;
 import java.util.*;
 
 class CustomArrayIterator<T> implements ListIterator<T>{
-CustomArrayList<T> CAL;
-Integer cursor;
-    CustomArrayIterator(CustomArrayList a){
+private CustomArrayList<T> CAL;
+private Integer cursor;
+    CustomArrayIterator(CustomArrayList<T> a){
         CAL=a;
         cursor=0;
     }
     @Override
     public boolean hasNext() {
-        if(cursor>= CAL.size()){return false;}
-        return true;
+        return cursor< CAL.size();
     }
 
     @Override
@@ -72,9 +71,8 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public boolean isEmpty() {
-        if (length==0)
-            return false;
-        return true;
+        return length==0;
+
     }
 
     @Override
@@ -101,6 +99,11 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public boolean add(T t) {
+        if(length==array.length){
+            Object[] newarr=new Object[array.length+500];
+            System.arraycopy(array,0,newarr,0,array.length);
+            array= (T[]) newarr;
+        }
         array[length]=t;
         length+=1;
         return true;
@@ -178,7 +181,7 @@ public class CustomArrayList<T> implements List<T> {
 
     @Override
     public ListIterator<T> listIterator() {
-        return new CustomArrayIterator<T>(this);
+        return new CustomArrayIterator<>(this);
     }
 
     @Override

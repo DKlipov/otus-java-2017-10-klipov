@@ -7,11 +7,7 @@ import java.util.List;
 
 public class ArrayTest {
     public static  boolean execute(List var) {
-        Comparator comp=new Comparator<Integer>() {
-            public int compare(Integer o1, Integer o2) {
-                return o1.compareTo(o2);
-            }
-        };
+        Comparator comp= (Comparator<Integer>) (o1, o2) -> o1.compareTo(o2);
         Class cls=var.getClass();
         List<Integer> a= null;
         List<Integer> c=null;
