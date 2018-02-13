@@ -10,33 +10,8 @@ public class Main {
         for(int i=0;i<numElements;i++){
             sortMs[i]= (int)(Math.random()*1000000);
         }
-
-        long time;
-        Integer[] newMs;
-
-        newMs=sortMs.clone();
-        time=System.nanoTime();
-        Arrays.sort(newMs);
-        System.out.print((System.nanoTime()-time)/1000000);
-        System.out.println(" quick sorting");
-
-        newMs=sortMs.clone();
-        time=System.nanoTime();
-        Arrays.parallelSort(newMs);
-        System.out.print((System.nanoTime()-time)/1000000);
-        System.out.println(" utils parallel sorting");
-
-        newMs=sortMs.clone();
-        time=System.nanoTime();
-        ParallelSorter.sort(newMs,numThreads);
-        System.out.print((System.nanoTime()-time)/1000000);
-        System.out.println(" handmade Parallel sorting");
-
-        newMs=sortMs.clone();
-        time=System.nanoTime();
-        ParallelSorter.serialSort(newMs);
-        System.out.print((System.nanoTime()-time)/1000000);
-        System.out.println(" one thread sorting");
+        
+        ParallelSorter.sort(sortMs,numThreads);
 
     }
 }
